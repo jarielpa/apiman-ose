@@ -41,7 +41,7 @@ ENV LAUNCH_JBOSS_IN_BACKGROUND true
 # Expose the ports we're interested in
 EXPOSE 8080 8443
 
-ENV APIMAN_VERSION 1.2.8.Final
+ENV APIMAN_VERSION 1.3.1.Final
 
 RUN cd $HOME/wildfly \
  && curl http://downloads.jboss.org/apiman/$APIMAN_VERSION/apiman-distro-wildfly10-$APIMAN_VERSION-overlay.zip | bsdtar -xvf-

@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: List
+items:
+- apiVersion: v1
+  kind: ImageStream
+  metadata:
+    name: apiman
+- apiVersion: v1
+  kind: BuildConfig
+  metadata:
+    name: apiman
+  spec:
+   output:
+     to:
+       kind: ImageStreamTag
+       name: apiman:latest
+   postCommit: {}
+   resources: {}
+   runPolicy: Serial
+   source:    
+     git:       
+       ref: master
+       uri: https://github.com/jarielpa/apiman-ose.git
+     type: Git
+   strategy:
+     dockerStrategy:
+       dockerfilePath: Dockerfile     
+       from:
+         kind: DockerImage
+         name: centos:7
+     type: Docker
